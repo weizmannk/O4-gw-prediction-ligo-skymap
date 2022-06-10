@@ -50,7 +50,7 @@ astro_Table({"mass1"   :   data["mass1"],
              "spin2z"  :   data["spin2z"],
              "distance":   data["distance"]
         }
-           ).write("injection_distribution_samples.h5", overwrite=True)
+           ).write("injection_bbh_astro.h5", overwrite=True)
 
 
  
