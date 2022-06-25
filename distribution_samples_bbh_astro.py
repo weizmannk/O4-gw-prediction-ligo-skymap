@@ -45,8 +45,8 @@ spin2z = spin_distn.rvs(n_samples)
 # save data on .h5 file 
 
 Table({
-    'mass1': mass1,
-    'mass2': mass2,
+    'mass1' : mass1,
+    'mass2' : mass2,
     'spin1z': spin1z,
     'spin2z': spin2z
 }).write(
@@ -60,3 +60,20 @@ data = Table.read("distribution_samples.h5").to_pandas()
 
 hist = data[['mass1', 'mass2', 'spin1z', 'spin2z']].hist(bins=1000, sharey=True)
 plt.savefig("distribution_samples.png", dpi=200)
+
+
+# In case where we have all populations on the same file 
+# abd  we need to  slpit the disribbution as a diferent populations 
+
+split_data = Table.read("distribution_samples.h5")
+
+
+bns = split_data[(split_data['mass1'] <= 2.5)]
+
+bbh = split_data[(split_data['mass2'] >= 5)]
+
+nsbh = split_data[(split_data['mass1'] >= 5) & ( split_data['mass2'] <= 2.5) ]
+
+bns.write('distribution_samples_bns.h5', overwrite=True)
+bbh.write('distribution_samples_bbh.h5', overwrite=True)
+nsbh.write('distribution_samples_nsbh.h5', overwrite=True)
