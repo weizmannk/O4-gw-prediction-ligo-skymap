@@ -3,7 +3,7 @@ from gwpy.table import Table as gwpy_Table
 
 # Read Ligo xml file generate by ligo.skymap
 
-datapath = "injections.xml"
+datapath = "/home/weizmann.kiendrebeogo/OBSERVING_SCENARIOS/observing-scenarios-simulations/runs/O3/bns_astro/injections.xml"
 
 def xml_to_dataframe(prior_file):
     table = gwpy_Table.read(prior_file, format="ligolw", tablename="sim_inspiral")
@@ -50,7 +50,7 @@ astro_Table({"mass1"   :   data["mass1"],
              "spin2z"  :   data["spin2z"],
              "distance":   data["distance"]
         }
-           ).write("injection_bbh_astro.h5", overwrite=True)
+           ).write("injection_bns_astro_3.h5", overwrite=True)
 
 
  

@@ -65,7 +65,7 @@ plt.savefig("distribution_samples.png", dpi=200)
 # In case where we have all populations on the same file 
 # abd  we need to  slpit the disribbution as a diferent populations 
 
-split_data = Table.read("distribution_samples.h5")
+split_data = Table.read("farah.h5")
 
 
 bns = split_data[(split_data['mass1'] <= 2.5)]
@@ -74,6 +74,6 @@ bbh = split_data[(split_data['mass2'] >= 5)]
 
 nsbh = split_data[(split_data['mass1'] >= 5) & ( split_data['mass2'] <= 2.5) ]
 
-bns.write('distribution_samples_bns.h5', overwrite=True)
-bbh.write('distribution_samples_bbh.h5', overwrite=True)
-nsbh.write('distribution_samples_nsbh.h5', overwrite=True)
+bns.write('farah_bns.h5', overwrite=True)
+bbh.write('farah_bbh.h5', overwrite=True)
+nsbh.write('farah_nsbh.h5', overwrite=True)
